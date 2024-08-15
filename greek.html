@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greek Keyboard</title>
+</head>
+<link rel="stylesheet" href="greek.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="icon" href="/images/orange.ico" type="image/x-icon">
+<body>
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="/" id="navbar__logo"><i class="fas fa-gem"></i>Ελληνικη γλωσσα</a>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <nav class="kb__navbar">
+        <ul class="navbar__menu">
+          <li class="navbar__item">
+            <a href="index.html" class="navbar__link">HOME</a>
+          </li>
+          <li class="navbar__item">
+            <a href="lexicon.html" class="navbar__link">Lexicon</a>
+          </li>
+          <li class="navbar__btn">
+            <a href="/" class="button">Sign Up</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </nav>
+  <div class="center">
+    <div class="container">
+      <img class="right-img" src="/images/combo-1.png" alt="/">
+      <textarea 
+      spellcheck="false" name="bigBox" id="textArea" rows="4" onkeyup="transcribeFn()" class="boxBig">
+      </textarea>
+      <img class="left-img" src="/images/combo-2.png" alt="/">
+    </div>
+    <br>
+    <div class="cls1__container">
+      <input class="btn__cls1" type="button" value="Copy" onclick="copyFn()">
+      <input class="btn__cls1" type="button" value="Save" onclick="saveFn()">
+      <input class="btn__cls1" type="button" value="Clear" onclick="clearFn()">
+      <input class="btn__cls1" type="button" value="Add to Lexicon" onclick="lexFn()">
+    </div> 
+  </div>
+  <div class="abc">
+    <div class="character">
+      <div class="container__archaic">
+        <div class="title__archaic">ARCHAIC LETTERS</div>
+        <div class="button__container">
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ϝ')" value="Ϝ">
+            <div class="tooltip">DIGAMMA (UPPERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ϙ')" value="Ϙ">
+            <div class="tooltip">QOPPA (UPPERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ͳ')" value="Ͳ">
+            <div class="tooltip">SAMPI (UPPERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ϻ')" value="Ϻ">
+            <div class="tooltip">SAN (UPPERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ϸ')" value="Ϸ">
+            <div class="tooltip">SHO (UPPERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ϡ')" value="Ϡ">
+            <div class="tooltip">SAMPI alt (UPPERCASE)</div>
+          </div>
+        </div>
+        <div class="button__container">
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ϝ')" value="ϝ">
+            <div class="tooltip">DIGAMMA (LOWERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ϙ')" value="ϙ">
+            <div class="tooltip">QOPPA (LOWERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ͳ')" value="ͳ">
+            <div class="tooltip">SAMPI (LOWERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ϻ')" value="ϻ">
+            <div class="tooltip">SAN (LOWERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ϸ')" value="ϸ">
+            <div class="tooltip">SHO (LOWERCASE)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ϡ')" value="ϡ">
+            <div class="tooltip">SAMPI Alt (LOWERCASE)</div>
+          </div>
+        </div>
+      </div>
+      <div class="container__instructions">
+        <ul id="instr"> INSTRUCTIONS
+          <li>Type j for <span class="n">η</span></li>
+          <li>Type th, kh, ph, ps, ks for <span class="n">θ, χ, φ, ψ, ξ</span></li>
+          <li>Type rh for <span class="n">ῥ</span></li>
+          <li>Press the space bar after s to change final letter σ into <span class="n">ς</span></li>
+          <li>Type ' after a vowel for an oxeia⟨ ´ ⟩, and '' for a bareia⟨ ` ⟩; e.g. a' and a'' for <span class="n">ά</span> and <span class="n">ὰ</span> respectively</li>
+          <li>Type ~ after a vowel for a perispomene <span class="brackets">⟨</span><span class="symbol">῀</span><span class="brackets">⟩</span>; e.g. a~ for <span class="n">ᾶ</span></li>
+          <li>Type h before a vowel for a rough breathing mark<span class="brackets">⟨</span> <span class="symboln">῾</span><span class="brackets">⟩</span>; e.g. ha for <span class="n">ἁ</span></li>
+          <li>Type # before a vowel for a smooth breathing mark<span class="brackets">⟨</span> <span class="symboln">᾿</span><span class="brackets">⟩</span>; e.g. #a for <span class="n">ἀ</span></li>
+          <li>Type = after a vowel for iota subscript<span class="brackets">⟨</span> <span class="symboln">ͺ</span><span class="brackets">⟩</span>; e.g. a= for <span class="n">ᾳ</span>. Note: ensure you have applied your accents before clicking =</li>
+          <li>Type - after a vowel for a macron ⟨ ¯ ⟩; e.g. a- for <span class="n">ᾱ</span></li>
+          <li>For <span class="n">special letters</span>, type f=, q=, ss=, sz=, sh= for <span class="n">ϝ, ϙ, ͳ, ϻ, ϸ </span>respectively</li>
+        </ul>
+      </div>
+      <div class="container__diaresis">
+        <div class="title__diaresis"> DIAERESIS AND PUNCTUATION </div>
+        <div class="button__container">
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ΰ')" value="ΰ">
+            <div class="tooltip">UPSILON WITH OXEIA AND DIAERESIS</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ῢ')" value="ῢ">
+            <div class="tooltip">UPSILON WITH BAREIA AND DIAERESIS</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ῧ')" value="ῧ">
+            <div class="tooltip">UPSILON WITH PERISPOMENE AND DIAERESIS</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ΐ')" value="ΐ">
+            <div class="tooltip">IOTA WITH OXEIA AND DIAERESIS</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ῒ')" value="ῒ">
+            <div class="tooltip">IOTA WITH BAREIA AND DIAERESIS</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ῗ')" value="ῗ">
+            <div class="tooltip">IOTA WITH PERISPOMENE AND DIAERESIS</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('ϔ')" value="ϔ">
+            <div class="tooltip">UPSILON (UPPERCASE) WITH DIAERESIS</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ϊ')" value="Ϊ">
+            <div class="tooltip">IOTA (UPPERCASE) WITH DIAERESIS</div>
+          </div>
+        </div>
+        <div class="button__container">
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('⁚')" value="⁚">
+            <div class="tooltip">TWO DOT PUNCTUATION</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('⁝')" value="⁝">
+            <div class="tooltip">THREE DOT PUNCTUATION</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('⁞')" value="⁞">
+            <div class="tooltip">FOUR DOT PUNCTUATION</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('⁙')" value="⁙">
+            <div class="tooltip">FIVE DOT PUNCTUATION</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('˙')" value="˙">
+            <div class="tooltip">STIGME TELEIA (EQUI. FULL STOP) </div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('·')" value="·">
+            <div class="tooltip">STIGME MESE (EQUI. SEMICOLON)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('․')" value="․">
+            <div class="tooltip">HYPOSTIGME (EQUI. COMMA)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn(';')" value=";">
+            <div class="tooltip">EROTEMATIKOS (EQUI. QUESTION MARK)</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('᾽')" value="᾽">
+            <div class="tooltip">APOSTROPHOS (USED IN ELISION)</div>
+          </div>
+        </div>
+        <div class="button__container">
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ϲ')" value="Ϲ">
+            <div class="tooltip">LUNATE SIGMA</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ͻ')" value="Ͻ">
+            <div class="tooltip">ANTISIGMA</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ͼ')" value="Ͼ">
+            <div class="tooltip">SIGMA PERIESTIGMENON</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('Ͽ')" value="Ͽ">
+            <div class="tooltip">ANTISIGMA PERIESTIGMENON</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('‿')" value="‿">
+            <div class="tooltip">HENOTIKON</div>
+          </div>
+          <div class="archaic">
+            <input type="button" class="abc__button" onclick="transcribebtn('⸒')" value="⸒">
+            <div class="tooltip">HYPODIASTOLE</div>
+          </div>
+          
+          
+          
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="greek.js"></script>
+</body>
+</html>
